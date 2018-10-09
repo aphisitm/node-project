@@ -2,15 +2,33 @@
 
 const fs = require('fs');
 const os = require('os');
-const name = require('./notes');
+const notes = require('./notes');
 const lodash = require('lodash')
+const functionNotes = require('./function-notes');
 
-// var user = os.userInfo();
-// console.log("user",user);
-// fs.appendFile('greetings.txt',`Hello World ${user.username} , ${name.age} year old ${name.name()}`  );
 
-// console.log("calculate", name.calculate(1,-3) );
 
-// var filteredArray = lodash.uniq(['A',1,6,8,4,1,9]);
-// console.log("filteredArray", filteredArray );
 
+var command = process.argv[2];
+
+if(command == "add"){
+
+    var name = process.argv[3];
+    var lastname = process.argv[4];
+    if(name && lastname){        
+        functionNotes.addNote( name , lastname ); 
+    }
+
+}else if (command == "get"){    
+
+    functionNotes.getAll(); 
+
+}else if (command == "del"){    
+
+    functionNotes.getAll(); 
+
+}else{    
+
+    
+
+}
